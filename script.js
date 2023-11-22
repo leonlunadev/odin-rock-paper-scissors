@@ -22,89 +22,117 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-function game() {
-  const results = document.querySelector(".results");
-  let playerScore = 0;
-  let computerScore = 0;
-
-  let playerChoice = "rock";
-
-  while (playerScore < 3 && computerScore < 3) {
-    let computerChoice = getComputerChoice();
-    let result = playRound(playerChoice, computerChoice);
-    if (result == 1) {
-      playerScore += 1;
-      let para = document.createElement("p");
-      let node = document.createTextNode(
-        `player: ${playerScore} computer: ${computerScore}`
-      );
-      para.appendChild(node);
-      let element = document.querySelector(".results");
-      element.appendChild(para);
-    }
-    if (result == -1) {
-      computerScore += 1;
-      let para = document.createElement("p");
-      let node = document.createTextNode(
-        `player: ${playerScore} computer: ${computerScore}`
-      );
-      para.appendChild(node);
-      let element = document.querySelector(".results");
-      element.appendChild(para);
-    }
-  }
-}
-
-function game() {
-  console.log("start game");
-}
-
 const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
+const clear = document.querySelector(".clear");
 
 let playerScore = 0;
 let computerScore = 0;
 
 rock.addEventListener("click", () => {
-  let result = playRound("rock", getComputerChoice());
+  const results = document.querySelector(".results");
+  let para = document.createElement("p");
+  let computerChoice = getComputerChoice();
+  let result = playRound("rock", computerChoice);
   if (result == 1) playerScore++;
   if (result == -1) computerScore++;
   if (playerScore > 2 || computerScore > 2) {
-    console.log("end game");
+    let para = document.createElement("p");
+    if (playerScore > computerScore) {
+      let node = document.createTextNode(
+        `Player wins ${playerScore} - ${computerScore}`
+      );
+      para.appendChild(node);
+      results.appendChild(para);
+    } else {
+      let node = document.createTextNode(
+        `Computer wins ${computerScore} - ${playerScore}`
+      );
+      para.appendChild(node);
+      results.appendChild(para);
+    }
   } else {
-    console.log(`player: ${playerScore} computer: ${computerScore}`);
+    let node = document.createTextNode(
+      `Player chose ${"rock"} and computer chose ${computerChoice}
+        Player: ${playerScore} Computer: ${computerScore}`
+    );
+    para.appendChild(node);
+    results.appendChild(para);
   }
 });
 
 paper.addEventListener("click", () => {
-  let result = playRound("paper", getComputerChoice());
+  const results = document.querySelector(".results");
+  let computerChoice = getComputerChoice();
+  let para = document.createElement("p");
+  let result = playRound("paper", computerChoice);
   if (result == 1) playerScore++;
   if (result == -1) computerScore++;
   if (playerScore > 2 || computerScore > 2) {
-    console.log("end game");
+    let para = document.createElement("p");
+    if (playerScore > computerScore) {
+      let node = document.createTextNode(
+        `Player wins ${playerScore} - ${computerScore}`
+      );
+      para.appendChild(node);
+      results.appendChild(para);
+    } else {
+      let node = document.createTextNode(
+        `Computer wins ${computerScore} - ${playerScore}`
+      );
+      para.appendChild(node);
+      results.appendChild(para);
+    }
   } else {
-    console.log(`player: ${playerScore} computer: ${computerScore}`);
+    let node = document.createTextNode(
+      `Player chose ${"paper"} and computer chose ${computerChoice} \n
+        Player: ${playerScore} Computer: ${computerScore}`
+    );
+    para.appendChild(node);
+    results.appendChild(para);
   }
 });
 
 scissors.addEventListener("click", () => {
-  let result = playRound("scissors", getComputerChoice());
+  let computerChoice = getComputerChoice();
+  const results = document.querySelector(".results");
+  let para = document.createElement("p");
+  let result = playRound("scissors", computerChoice);
   if (result == 1) playerScore++;
   if (result == -1) computerScore++;
   if (playerScore > 2 || computerScore > 2) {
-    console.log("end game");
+    let para = document.createElement("p");
+    if (playerScore > computerScore) {
+      let node = document.createTextNode(
+        `Player wins ${playerScore} - ${computerScore}`
+      );
+      para.appendChild(node);
+      results.appendChild(para);
+    } else {
+      let node = document.createTextNode(
+        `Computer wins ${computerScore} - ${playerScore}`
+      );
+      para.appendChild(node);
+      results.appendChild(para);
+    }
   } else {
-    console.log(`player: ${playerScore} computer: ${computerScore}`);
+    let node = document.createTextNode(
+      `Player chose ${"scissor"} and computer chose ${computerChoice}\n
+      Player: ${playerScore} Computer: ${computerScore}`
+    );
+    para.appendChild(node);
+    results.appendChild(para);
   }
 });
 
-// const playerInput = document.querySelector(".playerInput");
+clear.addEventListener("click", () => {
+  let allParagraphElements = document.getElementsByTagName("p");
 
-// let computerScore = 0;
-// let playerScore = 0;
+  for (let i = allParagraphElements.length - 1; i >= 0; i--) {
+    allParagraphElements[i].parentNode.removeChild(allParagraphElements[i]);
+  }
 
-// playerInput.addEventListener("change", () => {
-//   const playerChoice = String(playerInput.value).toLowerCase();
-//   game(playerChoice, playerScore, computerScore);
-// });
+  playerScore = 0;
+  computerScore = 0;
+});
