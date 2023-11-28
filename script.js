@@ -84,14 +84,3 @@ const selections = document.querySelectorAll(".selection");
 selections.forEach((selection) => {
   selection.addEventListener("click", handlePlayerSelection);
 });
-
-// clear.addEventListener("click", () => {
-//   let allParagraphElements = document.getElementsByTagName("p");
-
-//   for (let i = allParagraphElements.length - 1; i >= 0; i--) {
-//     allParagraphElements[i].parentNode.removeChild(allParagraphElements[i]);
-//   }
-
-//   playerScore = 0;
-//   computerScore = 0;
-// });
