@@ -60,7 +60,23 @@ function updateScore(playerSelection, computerSelection) {
 }
 
 function endGameScreen() {
-  location.reload();
+  const gameResult = document.querySelector("#round");
+  if (computerScore > playerScore) {
+    gameResult.textContent = "Computer wins the game!";
+  } else {
+    gameResult.textContent = "Player wins the game!";
+  }
+  const results = document.querySelector(".results");
+  const playAgain = document.createElement("button");
+  playAgain.textContent = "Play again!?";
+  playAgain.addEventListener("click", () => {
+    location.reload();
+  });
+
+  selections.forEach((button) => {
+    button.removeEventListener("click", handlePlayerSelection);
+  });
+  results.appendChild(playAgain);
 }
 
 const selections = document.querySelectorAll(".selection");
