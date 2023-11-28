@@ -7,14 +7,34 @@ h1 {
 }
 
 h2 {
+  font-size: 40px;
   display: inline;
 }
 
 h3 {
-  font-size: 30px;
+  font-size: 50px;
   display: inline;
 }
 
 .results {
-  height: 200px;
+  height: 500px;
+}
+
+.score {
+  display: flex;
+  width: 400px;
+  margin: 0 auto;
+  justify-content: space-around;
+}
+
+.category {
+  width: 400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+#round {
+  font-weight: bold;
+  font-size: 30px;
 }
