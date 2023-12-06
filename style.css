@@ -1,5 +1,6 @@
 body {
   text-align: center;
+  background: grey;
 }
 
 h1 {
@@ -8,33 +9,58 @@ h1 {
 
 h2 {
   font-size: 40px;
-  display: inline;
 }
 
-h3 {
-  font-size: 50px;
-  display: inline;
+img {
+  width: 200px;
 }
 
 .results {
+  display: flex;
+  justify-content: space-around;
   height: 500px;
 }
 
-.score {
+.player {
   display: flex;
-  width: 400px;
-  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+}
+
+.computer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scoreboard {
+  display: flex;
+}
+.rectangle {
+  height: 200px;
+  width: 100px;
+  border: 2px solid black;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 150px;
+}
+
+.player .rectangle {
+  background-color: green;
+}
+
+.computer .rectangle {
+  background-color: red;
+}
+
+.roundResult {
+  margin-bottom: 100px;
+}
+
+.choices {
+  display: flex;
   justify-content: space-around;
-}
-
-.category {
-  width: 400px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-}
-
-#round {
-  font-weight: bold;
-  font-size: 30px;
 }
