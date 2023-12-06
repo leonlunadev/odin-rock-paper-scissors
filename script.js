@@ -44,8 +44,8 @@ function handlePlayerSelection(e) {
   const computerSelection = getComputerChoice();
   const computerChoice = document.querySelector(".computer .choice");
   const playerChoice = document.querySelector(".player .choice");
-  const playerSrc = "/images/" + playerSelection + ".png";
-  const computerSrc = "/images/" + computerSelection + ".png";
+  const playerSrc = "images/" + playerSelection + ".png";
+  const computerSrc = "images/" + computerSelection + ".png";
   computerChoice.innerHTML = `<img src=${computerSrc}>`;
   playerChoice.innerHTML = `<img src=${playerSrc}>`;
   updateScore(playerSelection, computerSelection);
