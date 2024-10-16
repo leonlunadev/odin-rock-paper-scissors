@@ -87,3 +87,7 @@ img {
 .choice {
   height: 200px;
 }
+
+.choices img:hover {
+  cursor: pointer;
+}
